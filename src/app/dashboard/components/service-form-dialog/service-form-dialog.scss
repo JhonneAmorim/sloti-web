@@ -1,0 +1,416 @@
+// ===== VARIABLES =====
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  --secondary-color: #f59e0b;
+  --accent-color: #10b981;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-light: #9ca3af;
+  --background-light: #f8fafc;
+  --background-white: #ffffff;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+// ===== DIALOG CONTAINER =====
+.dialog-container {
+  background: var(--background-white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  position: relative;
+  min-width: 500px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    z-index: 1;
+  }
+}
+
+// ===== DIALOG TITLE =====
+.dialog-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 2rem 2rem 1rem 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+
+  .title-icon {
+    font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--primary-color);
+    filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.3));
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+  }
+}
+
+// ===== DIALOG CONTENT =====
+::ng-deep .mat-mdc-dialog-content {
+  padding: 0 2rem 1rem 2rem !important;
+  margin: 0 !important;
+  max-height: none !important;
+}
+
+// ===== DIALOG SURFACE OVERRIDE =====
+::ng-deep .mat-mdc-dialog-surface {
+  width: 105% !important;
+  max-width: 105% !important;
+  overflow-x: hidden !important;
+}
+
+// ===== RESPONSIVE DIALOG SURFACE =====
+@media (max-width: 768px) {
+  ::ng-deep .mat-mdc-dialog-container {
+    padding: 1rem !important;
+  }
+
+  ::ng-deep .mat-mdc-dialog-surface {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    max-height: 90vh !important;
+  }
+}
+
+@media (max-width: 480px) {
+  ::ng-deep .mat-mdc-dialog-container {
+    padding: 0.5rem !important;
+  }
+
+  ::ng-deep .mat-mdc-dialog-surface {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    max-height: 95vh !important;
+  }
+}
+
+@media (max-width: 360px) {
+  ::ng-deep .mat-mdc-dialog-container {
+    padding: 0.25rem !important;
+  }
+
+  ::ng-deep .mat-mdc-dialog-surface {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    max-height: 98vh !important;
+  }
+}
+
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem 20px;
+}
+
+// ===== FORM FIELDS =====
+.form-field {
+  width: 100%;
+
+  ::ng-deep {
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+
+    .mat-mdc-form-field {
+      .mat-mdc-text-field-wrapper {
+        background-color: #ffffff;
+        border-radius: 12px;
+        border: 2px solid #d1d5db;
+        transition: all 0.3s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          border-color: var(--primary-light);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        &.mdc-text-field--focused {
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .mat-mdc-form-field-icon-prefix {
+        color: var(--text-secondary);
+        margin-right: 0.5rem;
+      }
+
+      .mat-mdc-input-element {
+        padding: 1rem 0.75rem;
+        font-size: 1.05rem;
+        color: var(--text-primary);
+        font-weight: 400;
+
+        &::placeholder {
+          color: var(--text-light);
+          font-weight: 400;
+        }
+      }
+
+      .mat-mdc-form-field-label {
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .mat-mdc-form-field-error {
+        color: #ef4444;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-top: 0.5rem;
+        display: block;
+      }
+    }
+  }
+}
+
+// ===== DIALOG ACTIONS =====
+::ng-deep .mat-mdc-dialog-actions {
+  padding: 1.5rem 2rem 2rem 2rem !important;
+  margin: 0 !important;
+  justify-content: flex-end;
+  gap: 1rem;
+  background: var(--background-light);
+  border-top: 1px solid var(--border-color);
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+
+  button {
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: none;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.6s ease;
+    }
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+
+      &::before {
+        left: 100%;
+      }
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  // ===== CANCEL BUTTON =====
+  button[mat-stroked-button] {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 2px solid var(--border-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover:not(:disabled) {
+      background: var(--background-light);
+      border-color: var(--text-secondary);
+      color: var(--text-primary);
+    }
+  }
+
+  // ===== SUBMIT BUTTON =====
+  .submit-button {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-md);
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    }
+
+    &:hover:not(:disabled) {
+      box-shadow: var(--shadow-lg);
+    }
+
+    mat-spinner {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+// ===== LOADING STATE =====
+.dialog-form.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+// ===== RESPONSIVE DESIGN =====
+@media (max-width: 768px) {
+  .dialog-container {
+    min-width: 90vw;
+    max-width: 95vw;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+  }
+
+  .dialog-title {
+    font-size: 1.5rem;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+
+  ::ng-deep .mat-mdc-dialog-content {
+    padding: 0 1.5rem 1rem 1.5rem !important;
+    overflow-x: hidden !important;
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+  }
+
+  ::ng-deep .mat-mdc-dialog-actions {
+    padding: 1rem 1.5rem 1.5rem 1.5rem !important;
+    overflow-x: hidden !important;
+  }
+
+  .dialog-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+
+    button {
+      width: 100%;
+      padding: 0.875rem 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dialog-container {
+    min-width: 95vw;
+    max-width: 95vw;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 95vh;
+  }
+
+  .dialog-title {
+    font-size: 1.25rem;
+    padding: 1rem 1rem 0.75rem 1rem;
+  }
+
+  ::ng-deep .mat-mdc-dialog-content {
+    padding: 0 1rem 0.75rem 1rem !important;
+    max-height: 65vh !important;
+    overflow-y: auto !important;
+  }
+
+  ::ng-deep .mat-mdc-dialog-actions {
+    padding: 0.75rem 1rem 1rem 1rem !important;
+  }
+
+  .dialog-form {
+    padding: 1.5rem 10px;
+  }
+
+  .dialog-actions {
+    button {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// ===== ANIMATIONS =====
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dialog-container {
+  animation: slideIn 0.3s ease-out;
+}

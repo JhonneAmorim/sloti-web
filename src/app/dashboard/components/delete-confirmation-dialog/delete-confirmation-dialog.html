@@ -1,0 +1,32 @@
+<div class="dialog-container">
+    <h1 mat-dialog-title class="dialog-title">
+        <mat-icon class="title-icon">warning</mat-icon>
+        {{ data.title }}
+    </h1>
+
+    <div mat-dialog-content>
+        <div class="dialog-content">
+            <div class="warning-icon">
+                <mat-icon>delete_forever</mat-icon>
+            </div>
+
+            <div class="message-container">
+                <p class="main-message">{{ data.message }}</p>
+                <p class="item-name">"{{ data.itemName }}"</p>
+                <p class="warning-text">Esta ação não pode ser desfeita.</p>
+            </div>
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="dialog-actions">
+        <button mat-stroked-button (click)="onCancel()" [disabled]="data.isLoading">
+            <mat-icon>close</mat-icon>
+            Cancelar
+        </button>
+        <button mat-raised-button class="delete-button" (click)="onConfirm()" [disabled]="data.isLoading">
+            <mat-spinner *ngIf="data.isLoading" diameter="20"></mat-spinner>
+            <mat-icon *ngIf="!data.isLoading">delete</mat-icon>
+            {{ data.isLoading ? 'Excluindo...' : 'Excluir' }}
+        </button>
+    </div>
+</div>

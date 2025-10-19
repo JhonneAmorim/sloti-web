@@ -66,3 +66,206 @@ body {
   --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   --gradient-sidebar: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #db2777 100%);
 }
+
+/* Estilos Globais do SnackBar (Notificação) */
+.mdc-snackbar__surface {
+  border-radius: 12px !important;
+  box-shadow: var(--shadow-xl) !important;
+}
+
+.success .mdc-snackbar__surface {
+  background-color: var(--accent-color) !important; // Verde
+  color: white !important;
+}
+
+.success .mdc-snackbar__label {
+  color: white !important;
+  font-weight: 600;
+}
+
+.error .mdc-snackbar__surface {
+  background-color: #dc2626 !important; // Vermelho
+  color: white !important;
+}
+
+.error .mdc-snackbar__label {
+  color: white !important;
+  font-weight: 600;
+}
+
+/* ===== RESPONSIVIDADE GLOBAL ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* ===== DIALOG RESPONSIVIDADE GLOBAL ===== */
+::ng-deep .mat-mdc-dialog-container {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+}
+
+::ng-deep .mat-mdc-dialog-surface {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+@media (max-width: 1200px) {
+  ::ng-deep .mat-mdc-dialog-surface {
+    width: 95% !important;
+    max-width: 95% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .mat-mdc-dialog-surface {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  ::ng-deep .mat-mdc-dialog-surface {
+    width: 90% !important;
+    max-width: 90% !important;
+    margin: 0.5rem !important;
+  }
+}
+
+@media (max-width: 320px) {
+  ::ng-deep .mat-mdc-dialog-surface {
+    width: 85% !important;
+    max-width: 85% !important;
+    margin: 0.25rem !important;
+  }
+}
+
+/* ===== RESPONSIVIDADE GLOBAL PARA DASHBOARD ===== */
+@media (max-width: 1024px) {
+  .menu-button {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ===== RESPONSIVIDADE PARA TABELAS ===== */
+@media (max-width: 768px) {
+  .mat-table {
+    overflow-x: auto !important;
+  }
+
+  .mat-table-container {
+    overflow-x: auto !important;
+  }
+}
+
+/* ===== RESPONSIVIDADE PARA BOTÕES ===== */
+@media (max-width: 480px) {
+  .mat-mdc-button {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  .mat-mdc-icon-button {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* ===== RESPONSIVIDADE DO TOOLBAR ===== */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+
+  .toolbar-left {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .user-menu {
+    flex-shrink: 0 !important;
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    padding: 0 0.75rem !important;
+    height: 70px !important;
+  }
+
+  .toolbar-left .page-title {
+    font-size: 1.25rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .user-menu .user-button .user-name {
+    display: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .toolbar {
+    padding: 0 0.5rem !important;
+    height: 65px !important;
+  }
+
+  .toolbar-left .page-title {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* ===== RESPONSIVIDADE DOS MODAIS ===== */
+@media (max-width: 768px) {
+  ::ng-deep .mat-mdc-dialog-container {
+    padding: 1rem !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  ::ng-deep .mat-mdc-dialog-surface {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  ::ng-deep .mat-mdc-dialog-container {
+    padding: 0.5rem !important;
+  }
+
+  ::ng-deep .mat-mdc-dialog-surface {
+    max-height: 95vh !important;
+  }
+}
+
+@media (max-width: 360px) {
+  ::ng-deep .mat-mdc-dialog-container {
+    padding: 0.25rem !important;
+  }
+
+  ::ng-deep .mat-mdc-dialog-surface {
+    max-height: 98vh !important;
+  }
+}

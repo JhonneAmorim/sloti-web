@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { Dashboard } from './dashboard';
 import { Overview } from './pages/overview/overview';
+import { ServicesComponent } from './pages/services/services';
 
-const routes: Routes = [
+export const dashboardRoutes: Routes = [
   {
     path: '',
     component: Dashboard,
@@ -13,6 +13,10 @@ const routes: Routes = [
         component: Overview
       },
       {
+        path: 'services',
+        component: ServicesComponent
+      },
+      {
         path: '',
         redirectTo: 'overview',
         pathMatch: 'full'
@@ -20,9 +24,3 @@ const routes: Routes = [
     ]
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class DashboardRoutingModule { }

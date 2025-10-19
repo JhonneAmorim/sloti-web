@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-overview',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './overview.html',
   styleUrl: './overview.scss'
 })
